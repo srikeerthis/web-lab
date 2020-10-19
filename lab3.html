@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <script>
+        var ft= 0, load;
+        function run()
+        {
+            load = window.setInterval("inc()",100);
+        }
+        function inc()
+        {
+            ft=ft+1;
+            display.innerHTML="incrementing " + ft;
+            display.style.fontSize = ft + "pt";
+            display.style.color = "red";
+            if( ft > 49)
+            {
+                window.clearTimeout(load);
+                load= window.setInterval("dec()", 100);
+            }
+        }
+        function dec()
+        {
+            ft=ft-1;
+            display.innerHTML="decrementing " + ft;
+            display.style.fontSize = ft + "pt";
+            display.style.color = "blue";
+            if(ft < 5)
+            {
+                window.clearTimeout(load);
+                load= window.setInterval("inc()", 100);
+            }
+        }
+    </script>
+    <body onload="run()">
+        <p id="display"></p>
+    </body>
+</html>
